@@ -1,9 +1,9 @@
 {
   "name": "treedbox Atom JavaScript",
-  "main": "./lib/treedboxAtomJavaScript",
+  "main": "./lib/treedbox-atom-javascript",
   "version": "0.0.0",
   "description": "javaScript Snippets for fast development in Atom.io.",
-  "homepage": "https://github.com/treedbox/treedboxAtomJavaScript#readme",
+  "homepage": "https://github.com/treedbox/treedbox-atom-javascript#readme",
   "license": "MIT",
   "keywords": [
     "javascript",
@@ -14,10 +14,10 @@
     "autocomplete",
     "productivity"
   ],
-  "repository": "https://github.com/treedbox/treedboxAtomJavaScript.git",
+  "repository": "https://github.com/treedbox/treedbox-atom-javascript.git",
   "engines": {
     "atom": ">=1.0.0"
   },
-  "bugs": "https://github.com/treedbox/treedboxAtomJavaScript/issues",
+  "bugs": "https://github.com/treedbox/treedbox-atom-javascript/issues",
   "dependencies": {}
 }
