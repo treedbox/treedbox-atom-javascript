@@ -1,5 +1,6 @@
 {
   "name": "treedboxAtomJavaScript",
+  "main": "./lib/treedboxAtomJavaScript",
   "version": "0.0.0",
   "description": "javaScript Snippets for fast development in Atom.io.",
   "homepage": "https://github.com/treedbox/treedboxAtomJavaScript#readme",
@@ -14,10 +15,10 @@
   },
   "license": "MIT",
   "engines": {
-    "atom": ">=1.0.0 <2.0.0"
+    "atom": ">=1.0.0"
   },
   "dependencies": {},
-  "readme": "Snippets for Fast Development for Atom.",
+  "readme": "javaScript Snippets for fast development in Atom.io.",
   "readmeFilename": "README.md",
   "bugs": {
     "url": "https://github.com/treedbox/treedboxAtomJavaScript/issues"
