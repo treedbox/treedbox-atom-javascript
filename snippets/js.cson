@@ -1,0 +1,158 @@
+".text.html, .source.js, .source.js-semantic":
+  "console.log - JS":
+    prefix: "log"
+    body: "
+    console.log('$1 ',$1);$0
+    "
+  "addEventListener - JS":
+    prefix: "listener"
+    body: "
+    addEventListener('$1', ${3:on$2${1:ActionName}}, false);$0
+    "
+#function-------------
+  "function - JS":
+    prefix: "function"
+    body: "
+    function ${1:funcName}(){\n
+	     \t$2\n
+     }$0
+    "
+  "Anonymous Function - JS":
+    prefix: "anonymous"
+    body: "
+    (function(){\n
+      \t$1\n
+    })();\n
+    $0
+    "
+  "Anonymous Function Associated - JS":
+    prefix: "anonymousa"
+    body: "
+    var $1 = function(){\n
+      \t$2\n
+    }();\n
+    $0
+    "
+  "document.write - JS":
+    prefix: "write"
+    body: "
+    document.write(${1markup});$0
+    "
+  "do...while - JS":
+    prefix: "dowhile"
+    body: "
+    do{\n
+      \t$1\n
+    z++;\n
+    } while(${2:conditional});\n
+    $0
+    "
+#array--------------
+  "array - JS":
+    prefix: "array"
+    body: "
+    $1 = [$2];\n
+    $0
+    "
+  "push add last key - JS":
+    prefix: "push"
+    body: "
+    push($1)$0
+    "
+  "Array Key - JS":
+    prefix: "arrayKey"
+    body: "
+    ${1:ArrayName}[${2:key}] = ${'3:${4:value}'}$0
+    "
+  "String - JS":
+    prefix: "string"
+    body: "
+    $1 = '$2';\n
+    $0
+    "
+  "while - JS":
+    prefix: "while"
+    body: "
+    while(${1:conditional}){\n
+      \t$2\n
+      \tz++;\n
+    }$0
+    "
+  "typeof - JS":
+    prefix: "typeof"
+    body: "
+    typeof($1)$0
+    "
+  "RegExp - JS":
+    prefix: "regexp"
+    body: "
+    $1 = new RegExp($2);$0
+    "
+  "value As Number - JS":
+    prefix: "valueAsNumber"
+    body: "
+    valueAsNumber($1)$0
+    "
+  "innerHTML - JS":
+    prefix: "inner"
+    body: "
+    innerHTML = $1;$0
+    "
+  "alert - JS":
+    prefix: "alert"
+    body: "
+    alert('$1');
+    "
+  "length - JS":
+    prefix: "length"
+    body: "
+    length$0
+    "
+  "querySelector - JS":
+    prefix: "querySelector"
+    body: "
+    document.querySelector('${1:element}');$0
+    "
+  "querySelectorAll - JS":
+    prefix: "querySelectorAll"
+    body: "
+    document.querySelectorAll('${1:element}');$0
+    "
+  "Switch Case Break Default - JS":
+    prefix: "switch"
+    body: "
+    switch($1){\n
+      \tcase $2:\n
+          \t\t$3\n
+          \t\tbreak;\n
+      \t${4:default:\n
+          \t\t$5\n
+      \t}\n
+    }$0
+    "
+  "textContent - JS":
+    prefix: "textContent"
+    body: "
+    textContent = $1;
+    "
+  "for - JS":
+    prefix: "for"
+    body: "
+    for (var i = 0; i < $1.length; i++){\n
+      \t${2:$1[i]};\n
+    }$0
+    "
+  "fetch - JS":
+    prefix: "fetch"
+    body: "
+    fetch('${1:filename.extension}')\n
+    	\t.then(function(response){\n
+    	   \t\treturn response;\n
+    	})\n
+    	\t.then(function(data){\n
+    	   \t\tconsole.log('data', data);\n
+    	})\n
+    	\t.catch(function(error){\n
+    	   \t\tconsole.log('ERROR: ', error.message);\n
+    	})$0
+    "
