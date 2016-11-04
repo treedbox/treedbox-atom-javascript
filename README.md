@@ -3,7 +3,14 @@ javaScript Snippets for fast development in [Atom.io](https://atom.io/).
 
 By: [Jonimar Marques Policarpo](http://treedbox.com) at [Treedbox](http://treedbox.com)
 
+## Pages
+GitHub:  https://github.com/treedbox/treedbox-atom-javascript
+
+Atom.io: https://atom.io/packages/treedbox-atom-javascript
+
 ## Example
+for **html** or **js** files:
+
 Type **fetch** and press "Tab/Enter" to generate:
 ```
 fetch('filename.extension')
