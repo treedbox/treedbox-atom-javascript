@@ -1,5 +1,5 @@
 {
-  "name": "treedbox Atom JavaScript",
+  "name": "Treedbox Atom JavaScript",
   "main": "./lib/treedbox-atom-javascript",
   "version": "0.0.0",
   "description": "javaScript Snippets for fast development in Atom.io.",
