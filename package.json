@@ -1,36 +1,23 @@
 {
-  "name": "treedboxAtomJavaScript",
+  "name": "treedbox Atom JavaScript",
   "main": "./lib/treedboxAtomJavaScript",
   "version": "0.0.0",
   "description": "javaScript Snippets for fast development in Atom.io.",
   "homepage": "https://github.com/treedbox/treedboxAtomJavaScript#readme",
-  "keywords": [
-    "JS",
-    "javaScript",
-    "EcmaScript"
-  ],
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/treedbox/treedboxAtomJavaScript.git"
-  },
   "license": "MIT",
+  "keywords": [
+    "javascript",
+    "JS",
+    "es6",
+    "EcmaScript",
+    "snippets",
+    "autocomplete",
+    "productivity"
+  ],
+  "repository": "https://github.com/treedbox/treedboxAtomJavaScript.git",
   "engines": {
     "atom": ">=1.0.0"
   },
-  "dependencies": {},
-  "readme": "javaScript Snippets for fast development in Atom.io.",
-  "readmeFilename": "README.md",
-  "bugs": {
-    "url": "https://github.com/treedbox/treedboxAtomJavaScript/issues"
-  },
-  "_atomModuleCache": {
-    "version": 0,
-    "dependencies": [],
-    "extensions": {
-      ".json": [
-        "package.json"
-      ]
-    },
-    "folders": []
-  }
+  "bugs": "https://github.com/treedbox/treedboxAtomJavaScript/issues",
+  "dependencies": {}
 }
