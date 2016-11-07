@@ -1,24 +1,34 @@
 ".text.html, .source.js, .source.js-semantic":
   "console.log - JS":
-    prefix: "log"
+    prefix: "logc"
     body: "
-    console.log('$1 ',$1);$0
+    console.log('$1:',$1);$0
+    "
+  "console.dir - JS":
+    prefix: "dir"
+    body: "
+    console.dir($1);$0
     "
   "addEventListener - JS":
     prefix: "listener"
     body: "
-    addEventListener('$1', ${3:on$2${1:ActionName}}, false);$0
+    addEventListener('$1', ${3:on$2${1:ActionName}}, false)$0
     "
 #function-------------
-  "function - JS":
-    prefix: "function"
+  "=> Arrow function - JS":
+    prefix: "functionArrow"
     body: "
-    function ${1:funcName}(){\n
-	     \t$2\n
-     }$0
+    ($1) =>{\n
+    \t$2\n
+    }$0
     "
-  "Anonymous Function - JS":
-    prefix: "anonymous"
+  "=> Arrow function Advanced - JS":
+    prefix: "functionArrowAdSy"
+    body: "
+    ($0) => $1
+    "
+  "(Anonymous) Function - JS":
+    prefix: "functionAnonymous"
     body: "
     (function(){\n
       \t$1\n
@@ -26,12 +36,19 @@
     $0
     "
   "Anonymous Function Associated - JS":
-    prefix: "anonymousa"
+    prefix: "functionAnonymousAs"
     body: "
-    var $1 = function(){\n
+    var ${1:name} = function(){\n
       \t$2\n
     }();\n
     $0
+    "
+  "function() - JS":
+    prefix: "function"
+    body: "
+    function ${1:name}(){\n
+    \t$2\n
+    }$0
     "
   "document.write - JS":
     prefix: "write"
@@ -47,24 +64,179 @@
     } while(${2:conditional});\n
     $0
     "
-#array--------------
-  "array - JS":
+#array-----------------------
+# !!Non-standard-------------
+# Array.toSource(); on Chrome
+# Array.values();
+# !!Obsolete-----------------
+# Array.observe();
+# Array.unobserve();
+# !! Experimental-----------------
+# ArrayBuffer.transfer()
+# Body.arrayBuffer()
+  "[array] - JS":
     prefix: "array"
     body: "
     $1 = [$2];\n
     $0
     "
-  "push add last key - JS":
+  "Array[element] - JS":
+    prefix: "arrayElement"
+    body: "
+    ${1:ArrayName}[${2:el}] = ${3:'${4:value}'}$0
+    "
+  "push() add new last Array element - JS":
     prefix: "push"
     body: "
     push($1)$0
     "
-  "Array Key - JS":
-    prefix: "arrayKey"
+  "unshift() add new first Array element - JS":
+    prefix: "unshift"
     body: "
-    ${1:ArrayName}[${2:key}] = ${'3:${4:value}'}$0
+    unshift($1)$0
     "
-  "String - JS":
+  "pop() remove last Array element - JS":
+    prefix: "pop"
+    body: "
+    pop()$0
+    "
+  "shift() remove first Array element - JS":
+    prefix: "shift"
+    body: "
+    shift()$0
+    "
+  "reverse() Array - JS":
+    prefix: "reverse"
+    body: "
+    reverse()$0
+    "
+  "sort() Array - JS":
+    prefix: "sort"
+    body: "
+    sort()$0
+    "
+  "join() Array - JS":
+    prefix: "join"
+    body: "
+    join(${1:' '})$0
+    "
+  "splice() Array - JS":
+    prefix: "splice"
+    body: "
+    splice(${1:start},${2:0 or deleteCount},${3:new})
+    "
+  "fill() Array elements - JS":
+    prefix: "fill"
+    body: "
+    fill($1, ${2:start}, ${3:end})$0
+    "
+  "copyWithin() Array - JS":
+    prefix: "copyWithin"
+    body: "
+    copyWithin(${3:target}, ${1:start}, ${2:end})$0
+    "
+  "concat() Array - JS":
+    prefix: "concat"
+    body: "
+    concat(${1:ArrayName})$0
+    "
+  "entries() new Array Iterator - JS":
+    prefix: "entries"
+    body: "
+    entries()$0
+    "
+  "every() Return if Every element pass on Test - JS":
+    prefix: "every"
+    body: "
+    every(el => el ${1:>=} $2)$0
+    "
+  "filter() new Array all Filtred Array elements - JS":
+    prefix: "filter"
+    body: "
+    filter(el => el ${1:>=} $2)$0
+    "
+  "find() first Array element that pass on Test - JS":
+    prefix: "find"
+    body: "
+    find(el => el ${1:>=} $2)$0
+    "
+  "findIndex() first Array Index that pass on Test - JS":
+    prefix: "findIndex"
+    body: "
+    findIndex(el => el ${1:>=} $2)$0
+    "
+  "forEach() Array element - JS":
+    prefix: "forEach"
+    body: "
+    forEach(${1:function})$0
+    "
+  "includes() Array has it - JS":
+    prefix: "includes"
+    body: "
+    includes(${1:el})$0
+    "
+  "indexOf() Array element - JS":
+    prefix: "indexOf"
+    body: "
+    indexOf(${1:el})$0
+    "
+  "keys() Array Key each Index - JS":
+    prefix: "keys"
+    body: "
+    keys()$0
+    "
+  "lastIndexOf() Last Index of element - JS":
+    prefix: "lastIndexOf"
+    body: "
+    lastIndexOf(${1:el})$0
+    "
+  "map() new Array all element that pass on Test - JS":
+    prefix: "map"
+    body: "
+    map(el => el ${1:>=} $2)$0
+    "
+  "reduce() Array Accumulator: Previous and Current value - JS":
+    prefix: "reduce"
+    body: "
+    reduce((prev, curr) => $1)$0
+    "
+  "reduceRight() Array right-to-left Accumulator: Previous and Current value - JS":
+    prefix: "reduceRight"
+    body: "
+    reduceRight((prev, curr) => $1)$0
+    "
+  "slice() Array to new Array - JS":
+    prefix: "slice"
+    body: "
+    slice(${1:start}, ${2:end})$0
+    "
+  "some() Return if Some element pass on Test - JS":
+    prefix: "some"
+    body: "
+    some(el => el ${1:>=} $2)$0
+    "
+  "toLocaleString() Array to Locale String separated by comma, - JS":
+    prefix: "toLocaleString"
+    body: "
+    toLocaleString()$0
+    "
+  "toString() Array to String separated by comma, - JS":
+    prefix: "toString"
+    body: "
+    toString()$0
+    "
+  "toSource() Firefox: Array to String in Brackets, - JS":
+    prefix: "toSource"
+    body: "
+    toSource()$0
+    "
+  "length of an Array- JS":
+    prefix: "length"
+    body: "
+    length$0
+    "
+#--------------------------Array
+  "'String' - JS":
     prefix: "string"
     body: "
     $1 = '$2';\n
@@ -78,7 +250,7 @@
       \tz++;\n
     }$0
     "
-  "typeof - JS":
+  "typeof (String, Number, Object) - JS":
     prefix: "typeof"
     body: "
     typeof($1)$0
@@ -103,20 +275,15 @@
     body: "
     alert('$1');
     "
-  "length - JS":
-    prefix: "length"
-    body: "
-    length$0
-    "
   "querySelector - JS":
     prefix: "querySelector"
     body: "
-    document.querySelector('${1:element}');$0
+    document.querySelector('${1:el}');$0
     "
   "querySelectorAll - JS":
     prefix: "querySelectorAll"
     body: "
-    document.querySelectorAll('${1:element}');$0
+    document.querySelectorAll('${1:el}');$0
     "
   "Switch Case Break Default - JS":
     prefix: "switch"
@@ -142,12 +309,32 @@
       \t${2:$1[i]};\n
     }$0
     "
+  "preventDefault() Behavior - JS":
+    prefix: "preventDefault"
+    body: "
+    preventDefault();\n
+    $0
+    "
   "fetch - JS":
     prefix: "fetch"
     body: "
     fetch('${1:filename.extension}')\n
     	\t.then(function(response){\n
-    	   \t\treturn response;\n
+    	   \t\treturn response$1;\n
+    	})\n
+    	\t.then(function(data){\n
+    	   \t\tconsole.log('data', data);\n
+    	})\n
+    	\t.catch(function(error){\n
+    	   \t\tconsole.log('ERROR: ', error.message);\n
+    	})$0
+    "
+  "fetch response to Text - JS":
+    prefix: "fetchText"
+    body: "
+    fetch('${1:filename.extension}')\n
+    	\t.then(function(response){\n
+    	   \t\treturn response.text();\n
     	})\n
     	\t.then(function(data){\n
     	   \t\tconsole.log('data', data);\n
