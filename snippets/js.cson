@@ -320,7 +320,7 @@
     body: "
     fetch('${1:filename.extension}')\n
     	\t.then(function(response){\n
-    	   \t\treturn response$1;\n
+    	   \t\treturn response$2;\n
     	})\n
     	\t.then(function(data){\n
     	   \t\tconsole.log('data', data);\n
