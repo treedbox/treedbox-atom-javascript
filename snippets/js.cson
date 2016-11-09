@@ -16,19 +16,19 @@
     "
 #function-------------
   "=> Arrow function - JS":
-    prefix: "functionArrow"
+    prefix: "funcArrow"
     body: "
     ($1) =>{\n
     \t$2\n
     }$0
     "
   "=> Arrow function Advanced - JS":
-    prefix: "functionArrowAdSy"
+    prefix: "funcArrowAd"
     body: "
     ($0) => $1
     "
   "(Anonymous) Function - JS":
-    prefix: "functionAnonymous"
+    prefix: "funcAnon"
     body: "
     (function(){\n
       \t$1\n
@@ -36,7 +36,7 @@
     $0
     "
   "Anonymous Function Associated - JS":
-    prefix: "functionAnonymousAs"
+    prefix: "funcAnonAsso"
     body: "
     var ${1:name} = function(){\n
       \t$2\n
@@ -44,7 +44,7 @@
     $0
     "
   "function() - JS":
-    prefix: "function"
+    prefix: "func"
     body: "
     function ${1:name}(){\n
     \t$2\n
@@ -81,7 +81,7 @@
     $0
     "
   "Array[element] - JS":
-    prefix: "arrayElement"
+    prefix: "arrayEl"
     body: "
     ${1:ArrayName}[${2:el}] = ${3:'${4:value}'}$0
     "
@@ -175,20 +175,10 @@
     body: "
     includes(${1:el})$0
     "
-  "indexOf() Array element - JS":
-    prefix: "indexOf"
-    body: "
-    indexOf(${1:el})$0
-    "
   "keys() Array Key each Index - JS":
     prefix: "keys"
     body: "
     keys()$0
-    "
-  "lastIndexOf() Last Index of element - JS":
-    prefix: "lastIndexOf"
-    body: "
-    lastIndexOf(${1:el})$0
     "
   "map() new Array all element that pass on Test - JS":
     prefix: "map"
@@ -201,7 +191,7 @@
     reduce((prev, curr) => $1)$0
     "
   "reduceRight() Array right-to-left Accumulator: Previous and Current value - JS":
-    prefix: "reduceRight"
+    prefix: "reduceR"
     body: "
     reduceRight((prev, curr) => $1)$0
     "
@@ -230,17 +220,76 @@
     body: "
     toSource()$0
     "
-  "length of an Array- JS":
+#--------------------------Array
+#String--------------------------
+# !!Deprecated-------------
+# String.prototype.big()  <big>String</big>
+  "'String' - JS":
+    prefix: "str"
+    body: "
+    var $1 = '$2';\n
+    $0
+    "
+  "'String' Long Literal - JS":
+    prefix: "strLongLite"
+    body: "
+    var $1 = '$2 \\\\\n
+    $3';$0
+    "
+  "`String` Template - JS":
+    prefix: "strTempl"
+    body: "
+    var $1 = `$2`;\n
+    $0
+    "
+  "`String` Template MultiLine - JS":
+    prefix: "strMultiLine "
+    body: "
+    var $1 = `$2\n
+    $3`;\n
+    $0
+    "
+  "`String` Expression - JS":
+    prefix: "strExp"
+    body: "
+    var $1 = `$2 ${${3:expression}} $4`;\n
+    $0
+    "
+  "Expression in a `String` Template - JS":
+    prefix: "expStr"
+    body: "
+    ${${1:expression}}$0
+    "
+  "substr() - JS":
+    prefix: "substr"
+    body: "
+    substr(${1:start}, ${2:length})$0
+    "
+  "substring() - JS":
+    prefix: "substring"
+    body: "
+    substring(${1:indexStart}, ${2:indexEnd})$0
+    "
+  "charAt() - JS":
+    prefix: "charAt"
+    body: "
+    charAt(${1:index})$0
+    "
+#--------------------------String
+  "length - JS":
     prefix: "length"
     body: "
     length$0
     "
-#--------------------------Array
-  "'String' - JS":
-    prefix: "string"
+  "indexOf() - JS":
+    prefix: "indexOf"
     body: "
-    $1 = '$2';\n
-    $0
+    indexOf(${1:el})$0
+    "
+  "lastIndexOf() Last Index of element - JS":
+    prefix: "lastIndexOf"
+    body: "
+    lastIndexOf(${1:el})$0
     "
   "while - JS":
     prefix: "while"
@@ -261,7 +310,7 @@
     $1 = new RegExp($2);$0
     "
   "value As Number - JS":
-    prefix: "valueAsNumber"
+    prefix: "valueAsNum"
     body: "
     valueAsNumber($1)$0
     "
@@ -276,12 +325,12 @@
     alert('$1');
     "
   "querySelector - JS":
-    prefix: "querySelector"
+    prefix: "querySelec"
     body: "
     document.querySelector('${1:el}');$0
     "
   "querySelectorAll - JS":
-    prefix: "querySelectorAll"
+    prefix: "querySelecAll"
     body: "
     document.querySelectorAll('${1:el}');$0
     "
@@ -298,7 +347,7 @@
     }$0
     "
   "textContent - JS":
-    prefix: "textContent"
+    prefix: "textCont"
     body: "
     textContent = $1;
     "
@@ -310,7 +359,7 @@
     }$0
     "
   "preventDefault() Behavior - JS":
-    prefix: "preventDefault"
+    prefix: "preventDef"
     body: "
     preventDefault();\n
     $0
@@ -318,21 +367,21 @@
   "fetch - JS":
     prefix: "fetch"
     body: "
-    fetch('${1:filename.extension}')\n
+    fetch(${1:'filename.extension'})\n
     	\t.then(function(response){\n
-    	   \t\treturn response$2;\n
+    	   \t\treturn response;\n
     	})\n
     	\t.then(function(data){\n
     	   \t\tconsole.log('data', data);\n
     	})\n
     	\t.catch(function(error){\n
     	   \t\tconsole.log('ERROR: ', error.message);\n
-    	})$0
+    	});$0
     "
   "fetch response to Text - JS":
     prefix: "fetchText"
     body: "
-    fetch('${1:filename.extension}')\n
+    fetch(${1:'filename.extension'})\n
     	\t.then(function(response){\n
     	   \t\treturn response.text();\n
     	})\n
@@ -341,5 +390,19 @@
     	})\n
     	\t.catch(function(error){\n
     	   \t\tconsole.log('ERROR: ', error.message);\n
-    	})$0
+    	});$0
+    "
+  "fetch response to JSON  - JS":
+    prefix: "fetchJSON"
+    body: "
+    fetch(${1:'filename.extension'})\n
+    	\t.then(function(response){\n
+    	   \t\treturn response.json();\n
+    	})\n
+    	\t.then(function(data){\n
+    	   \t\tconsole.log('data', data);\n
+    	})\n
+    	\t.catch(function(error){\n
+    	   \t\tconsole.log('ERROR: ', error.message);\n
+    	});$0
     "
