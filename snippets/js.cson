@@ -1,4 +1,4 @@
-sudo ".text.html, .source.js, .source.js-semantic":
+".text.html, .source.js, .source.js-semantic":
   "console.log - JS":
     prefix: "logC"
     body: "
