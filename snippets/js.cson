@@ -1,6 +1,6 @@
-".text.html, .source.js, .source.js-semantic":
+sudo ".text.html, .source.js, .source.js-semantic":
   "console.log - JS":
-    prefix: "logc"
+    prefix: "logC"
     body: "
     console.log('$1:',$1);$0
     "
@@ -9,46 +9,122 @@
     body: "
     console.dir($1);$0
     "
+  "let instead var? - JS":
+    prefix: "var"
+    body: "
+    let $0
+    "
+  "setAttribute: add or change value - JS":
+    prefix: "setAttr"
+    body: "
+    setAttribute('${1:attributeName}', ${2:value})$0
+    "
+  "getAttribute: add or change value - JS":
+    prefix: "getAttr"
+    body: "
+    getAttribute('${1:attributeName}')$0
+    "
+  "{} Object - JS":
+    prefix: "obj"
+    body: "
+    {$1}$0
+    "
+  "{} Object structure - JS":
+    prefix: "objS"
+    body: "
+    {\n
+      \t${1:property}: ${2:value},\n
+      \t${3:property}: ${4:value}\n}$0
+    "
+  "hasOwnProperty Object return Boolean - JS":
+    prefix: "hasOwnProp"
+    body: "
+    hasOwnProperty(${1:prop})$0
+    "
+  "use strict: Strict Mode - JS":
+    prefix: "strict"
+    body: "
+    'use strict';\n$0
+    "
+  "return - JS":
+    prefix: "ret"
+    body: "
+    return $0
+    "
+  "import - JS":
+    prefix: "import"
+    body: "
+    import {${1:${2:member1}, ${3:member2}}} from './${4:module}';\n$0
+    "
+  "import default - JS":
+    prefix: "importDefault"
+    body: "
+    import ${1:defaultName}, {${2:${3:member1}, ${4:member2}}} from './${5:module}';\n$0
+    "
+  "import * all - JS":
+    prefix: "importAll"
+    body: "
+    import * as ${1:name} from './${2:module}';
+    "
+  "destructuring Object - JS":
+    prefix: "destructObj"
+    body: "
+    let {${2:${3:property}: ${4:newEl}}} = ${1:objectName};\n$0
+    "
+  "destructuring Array - JS":
+    prefix: "destructArr"
+    body: "
+    let [${2:${3:firstEl}, ${4:secondEl}}] = ${1:arr};\n$0
+    "
+  "destructuring to Separate values - JS":
+    prefix: "destructVal"
+    body: "
+    [${1:e}, ${2:el}]$0
+    "
   "addEventListener - JS":
     prefix: "listener"
     body: "
-    addEventListener('$1', ${3:on$2${1:ActionName}}, false)$0
+    addEventListener('$1', ${2:on${1:ActionName}})$0
     "
-#function-------------
+  "removeEventListener - JS":
+    prefix: "removeEventListener"
+    body: "
+    removeEventListener('$1', ${2:funName})$0
+    "
+# function-------------
   "=> Arrow function - JS":
     prefix: "funcArrow"
     body: "
     ($1) =>{\n
-    \t$2\n
-    }$0
+    \t$2\n}$0
     "
   "=> Arrow function Advanced - JS":
     prefix: "funcArrowAd"
     body: "
-    ($0) => $1
+    () => $0
     "
   "(Anonymous) Function - JS":
     prefix: "funcAnon"
     body: "
     (function(){\n
-      \t$1\n
-    })();\n
-    $0
+      \t$1\n})();\n$0
     "
   "Anonymous Function Associated - JS":
     prefix: "funcAnonAsso"
     body: "
-    var ${1:name} = function(){\n
-      \t$2\n
-    }();\n
-    $0
+    let ${1:name} = function(){\n
+      \t$2\n}();\n$0
     "
   "function() - JS":
     prefix: "func"
     body: "
     function ${1:name}(){\n
-    \t$2\n
-    }$0
+    \t$2\n}$0
+    "
+  "call() - JS":
+    prefix: "call"
+    body: "
+    call(${1:thisArg})$0
     "
   "document.write - JS":
     prefix: "write"
@@ -60,11 +136,9 @@
     body: "
     do{\n
       \t$1\n
-    z++;\n
-    } while(${2:conditional});\n
-    $0
+    z++;\n} while(${2:conditional});\n$0
     "
-#array-----------------------
+# array-----------------------
 # !!Non-standard-------------
 # Array.toSource(); on Chrome
 # Array.values();
@@ -77,8 +151,7 @@
   "[array] - JS":
     prefix: "array"
     body: "
-    $1 = [$2];\n
-    $0
+    [$1]$0
     "
   "Array[element] - JS":
     prefix: "arrayEl"
@@ -148,22 +221,22 @@
   "every() Return if Every element pass on Test - JS":
     prefix: "every"
     body: "
-    every(el => el ${1:>=} $2)$0
+    every($1)$0
     "
   "filter() new Array all Filtred Array elements - JS":
     prefix: "filter"
     body: "
-    filter(el => el ${1:>=} $2)$0
+    filter($1)$0
     "
   "find() first Array element that pass on Test - JS":
     prefix: "find"
     body: "
-    find(el => el ${1:>=} $2)$0
+    find($1)$0
     "
   "findIndex() first Array Index that pass on Test - JS":
     prefix: "findIndex"
     body: "
-    findIndex(el => el ${1:>=} $2)$0
+    findIndex($1)$0
     "
   "forEach() Array element - JS":
     prefix: "forEach"
@@ -175,20 +248,82 @@
     body: "
     includes(${1:el})$0
     "
+  "Array.from() array-like or iterable object - JS":
+    prefix: "arrFrom"
+    body: "
+    Array.from(${1:el})$0
+    "
+  "... Spread Operators - JS":
+    prefix: "spread"
+    body: "
+    ...$0
+    "
+  "... Rest Parameters - JS":
+    prefix: "rest"
+    body: "
+    ...$0
+    "
   "keys() Array Key each Index - JS":
     prefix: "keys"
     body: "
     keys()$0
     "
+  "values() new Iterator object contains the values - JS":
+    prefix: "values"
+    body: "
+    values()$0
+    "
   "map() new Array all element that pass on Test - JS":
     prefix: "map"
     body: "
-    map(el => el ${1:>=} $2)$0
+    map($1)$0
+    "
+  "Set() store unique values - JS":
+    prefix: "set"
+    body: "
+    Set($1)$1
+    "
+  "add() to the end - JS":
+    prefix: "add"
+    body: "
+    add($1)$0
+    "
+  "delete() remove specified element - JS":
+    prefix: "delete"
+    body: "
+    delete($1)$0
+    "
+  "has() boolean element exists - JS":
+    prefix: "has"
+    body: "
+    has($1)$0
+    "
+  "clear() remove all elements - JS":
+    prefix: "clear"
+    body: "
+    clear()$0
+    "
+  "next() Object with done and value, next iterator - JS":
+    prefix: "next"
+    body: "
+    next()$0
+    "
+  "Generator: function with iteraction - JS":
+    prefix: "generator"
+    body: "
+    function* gen() {\n
+      \tyield $1;\n}\n$0
+    "
+  "yield - JS":
+    prefix: "yeield"
+    body: "
+    yield $0
     "
   "reduce() Array Accumulator: Previous and Current value - JS":
     prefix: "reduce"
     body: "
-    reduce((prev, curr) => $1)$0
+    reduce((${1:prev, curr}) =>{\n
+    \t\t$2\n}${3:,initialValue})
     "
   "reduceRight() Array right-to-left Accumulator: Previous and Current value - JS":
     prefix: "reduceR"
@@ -203,7 +338,7 @@
   "some() Return if Some element pass on Test - JS":
     prefix: "some"
     body: "
-    some(el => el ${1:>=} $2)$0
+    some($1)$0
     "
   "toLocaleString() Array to Locale String separated by comma, - JS":
     prefix: "toLocaleString"
@@ -220,43 +355,37 @@
     body: "
     toSource()$0
     "
-#--------------------------Array
-#String--------------------------
+# --------------------------Array
+# String--------------------------
 # !!Deprecated-------------
 # String.prototype.big()  <big>String</big>
   "'String' - JS":
     prefix: "str"
     body: "
-    var $1 = '$2';\n
-    $0
+    '$1'$0
     "
   "'String' Long Literal - JS":
-    prefix: "strLongLite"
+    prefix: "strLongLit"
     body: "
-    var $1 = '$2 \\\\\n
-    $3';$0
+    '$1 \\\\\n$2'$0
     "
-  "`String` Template - JS":
-    prefix: "strTempl"
+  "`Template` String - JS":
+    prefix: "templ"
     body: "
-    var $1 = `$2`;\n
-    $0
+    `$1 `
     "
   "`String` Template MultiLine - JS":
-    prefix: "strMultiLine "
+    prefix: "strMultiLine"
     body: "
-    var $1 = `$2\n
-    $3`;\n
-    $0
+    `$1\n$2`$0
     "
   "`String` Expression - JS":
     prefix: "strExp"
     body: "
-    var $1 = `$2 ${${3:expression}} $4`;\n
-    $0
+    `$2 ${${1:expression}}$3`$0
     "
-  "Expression in a `String` Template - JS":
-    prefix: "expStr"
+  "Expression - JS":
+    prefix: "exp"
     body: "
     ${${1:expression}}$0
     "
@@ -275,12 +404,12 @@
     body: "
     charAt(${1:index})$0
     "
-#--------------------------String
   "length - JS":
     prefix: "length"
     body: "
     length$0
     "
+# --------------------------String
   "indexOf() - JS":
     prefix: "indexOf"
     body: "
@@ -296,10 +425,9 @@
     body: "
     while(${1:conditional}){\n
       \t$2\n
-      \tz++;\n
-    }$0
+      \tz++;\n}$0
     "
-  "typeof (String, Number, Object) - JS":
+  "typeof(String, Number, Object) - JS":
     prefix: "typeof"
     body: "
     typeof($1)$0
@@ -343,8 +471,7 @@
           \t\tbreak;\n
       \t${4:default:\n
           \t\t$5\n
-      \t}\n
-    }$0
+      \t}\n}$0
     "
   "textContent - JS":
     prefix: "textCont"
@@ -352,57 +479,173 @@
     textContent = $1;
     "
   "for - JS":
-    prefix: "for"
+    prefix: "fo"
     body: "
-    for (var i = 0; i < $1.length; i++){\n
-      \t${2:$1[i]};\n
-    }$0
+    for (let i = 0; i < $1.length; i++){\n
+      \t${2:$1[i]};\n}$0
+    "
+  "for...of - JS":
+    prefix: "foof"
+    body: "
+    for (let e of ${1:iterable}){\n
+      \t$2\n}$0
+    "
+  "for...in - JS":
+    prefix: "foin"
+    body: "
+    for (let e in ${1:object}){\n
+      \t$2\n}$0
     "
   "preventDefault() Behavior - JS":
     prefix: "preventDef"
     body: "
-    preventDefault();\n
-    $0
+    preventDefault();\n$0
     "
   "fetch - JS":
     prefix: "fetch"
     body: "
-    fetch(${1:'filename.extension'})\n
-    	\t.then(function(response){\n
-    	   \t\treturn response;\n
-    	})\n
-    	\t.then(function(data){\n
-    	   \t\tconsole.log('data', data);\n
-    	})\n
-    	\t.catch(function(error){\n
-    	   \t\tconsole.log('ERROR: ', error.message);\n
-    	});$0
+    fetch(${1:url})\n
+        \t.then(response =>{\n
+           \t\treturn response$2;\n
+        \t})\n
+        \t.then(data =>{\n
+           \t\tconsole.log('data:', data);\n
+        \t})\n
+        \t.catch(function(error){\n
+           \t\tconsole.log('ERROR: ', error.message);\n
+        \t});\n$0
     "
   "fetch response to Text - JS":
     prefix: "fetchText"
     body: "
-    fetch(${1:'filename.extension'})\n
-    	\t.then(function(response){\n
-    	   \t\treturn response.text();\n
-    	})\n
-    	\t.then(function(data){\n
-    	   \t\tconsole.log('data', data);\n
-    	})\n
-    	\t.catch(function(error){\n
-    	   \t\tconsole.log('ERROR: ', error.message);\n
-    	});$0
+    fetch(${1:url})\n
+        \t.then(response =>{\n
+           \t\treturn response.text();\n
+        \t})\n
+        \t.then(data =>{\n
+           \t\tconsole.log('data:', data);\n
+        \t})\n
+        \t.catch(function(error){\n
+           \t\tconsole.log('ERROR: ', error.message);\n
+        \t});\n$0
     "
-  "fetch response to JSON  - JS":
+  "fetch response to JSON - JS":
     prefix: "fetchJSON"
     body: "
-    fetch(${1:'filename.extension'})\n
-    	\t.then(function(response){\n
-    	   \t\treturn response.json();\n
-    	})\n
-    	\t.then(function(data){\n
-    	   \t\tconsole.log('data', data);\n
-    	})\n
-    	\t.catch(function(error){\n
-    	   \t\tconsole.log('ERROR: ', error.message);\n
-    	});$0
+    fetch(${1:url})\n
+        \t.then(response =>{\n
+           \t\treturn response.json();\n
+        \t})\n
+        \t.then(data =>{\n
+           \t\tconsole.log('data:', data);\n
+        \t})\n
+        \t.catch(function(error){\n
+           \t\tconsole.log('ERROR: ', error.message);\n
+        \t});\n$0
+    "
+  "then - JS":
+    prefix: "tehen"
+    body: "
+    then($1)$0
+    "
+  "catch - JS":
+    prefix: "catch"
+    body: "
+    catch((err) =>{\n
+       \tconsole.log(err);\n});$0
+    "
+  "text - JS":
+    prefix: "text"
+    body: "
+    text()$0
+    "
+  "json - JS":
+    prefix: "json"
+    body: "
+    json()$0
+    "
+  "blob - JS":
+    prefix: "blob"
+    body: "
+    blob()$0
+    "
+  "arrayBuffer - JS":
+    prefix: "arrayBuffer"
+    body: "
+    arrayBuffer()$0
+    "
+  "formData - JS":
+    prefix: "formData"
+    body: "
+    formData()$0
+    "
+# Class---------------
+  "Class, Class expression named/unamed - JS":
+    prefix: "clas"
+    body: "
+    class ${1:ClassName}{\n
+      \tconstructor($2){\n
+        \t\t$3\n
+      \t}\n}\n$0
+    "
+  "Class: constructor - JS":
+    prefix: "construc"
+    body: "
+    constructor($1){\n
+      \t$2\n}\n$0
+    "
+  "Class: extends, child of class - JS":
+    prefix: "ext"
+    body: "
+    extends ${1:ClassName}
+    "
+  "Class: super() to allow override existing methods - JS":
+    prefix: "super"
+    body: "
+    super()$0
+    "
+  "Class: static method - JS":
+    prefix: "static"
+    body: "
+    static ${1:staticMethod}(){\n
+      \t$2\n}\n$0
+    "
+# Promise---------------
+  "Promise - JS":
+    prefix: "promise"
+    body: "
+    new Promise((resolve, reject) =>{\n
+      \tresolve($1);\n
+      \treject($2);\n});\n$0
+    "
+  "Promise.all - JS":
+    prefix: "promiseAll"
+    body: "
+    Promise.all([${1:p1}, ${2:p2}])\n
+    \t.then((data) =>{\n
+      \t\t$3\n
+    \t})\n
+    \t.catch((err) =>{\n
+    \t\tconsole.log(err);\n});\n$0
+    "
+# Timers---------------
+  "setInterval() - JS":
+    prefix: "setInterval"
+    body: "
+    setInterval(${1:function}, ${2:delay})$0
+    "
+  "clearInterval() - JS":
+    prefix: "clearInterval"
+    body: "
+    clearInterval(${1:function})$0
+    "
+  "setTimeout() - JS":
+    prefix: "setTimeout"
+    body: "
+    setTimeout(${1:function}, ${2:delay})$0
+    "
+  "clearTimeout() - JS":
+    prefix: "clearTimeout"
+    body: "
+    clearTimeout(${1:function})$0
     "
