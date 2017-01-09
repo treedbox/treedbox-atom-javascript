@@ -9,18 +9,18 @@ GitHub:  https://github.com/treedbox/treedbox-atom-javascript
 Atom.io: https://atom.io/packages/treedbox-atom-javascript
 
 ## Example
-for **html** or **js** files:
+for **html** or **js** files:ls
 
 Type **fetch** and press "Tab/Enter" to generate:
 ```
-fetch('filename.extension')
-   .then(function(response){
+fetch(url)
+   .then((response) =>{
      return response;
  })
-   .then(function(data){
+   .then((data) =>{
      console.log('data', data);
  })
-   .catch(function(error){
+   .catch((error) =>{
      console.log('ERROR: ', error.message);
  })
  ```
