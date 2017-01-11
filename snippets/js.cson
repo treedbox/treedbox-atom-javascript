@@ -1,4 +1,4 @@
-".text.html, .source.js, .source.js-semantic":
+".source.js, .source.js-semantic":
   "console.log - JS":
     prefix: "logC"
     body: "
@@ -511,9 +511,7 @@
         \t.then(data =>{\n
            \t\tconsole.log('data:', data);\n
         \t})\n
-        \t.catch(function(error){\n
-           \t\tconsole.log('ERROR: ', error.message);\n
-        \t});\n$0
+        \t.catch(error => console.log('ERROR:', error.message));\n$0
     "
   "fetch response to Text - JS":
     prefix: "fetchText"
@@ -525,9 +523,7 @@
         \t.then(data =>{\n
            \t\tconsole.log('data:', data);\n
         \t})\n
-        \t.catch(function(error){\n
-           \t\tconsole.log('ERROR: ', error.message);\n
-        \t});\n$0
+        \t.catch(error => console.log('ERROR:', error.message));\n$0
     "
   "fetch response to JSON - JS":
     prefix: "fetchJSON"
@@ -539,9 +535,7 @@
         \t.then(data =>{\n
            \t\tconsole.log('data:', data);\n
         \t})\n
-        \t.catch(function(error){\n
-           \t\tconsole.log('ERROR: ', error.message);\n
-        \t});\n$0
+        \t.catch(error => console.log('ERROR:', error.message));\n$0
     "
   "then - JS":
     prefix: "tehen"

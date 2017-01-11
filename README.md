@@ -11,18 +11,16 @@ Atom.io: https://atom.io/packages/treedbox-atom-javascript
 ## Example
 for **html** or **js** files:ls
 
-Type **fetch** and press "Tab/Enter" to generate:
+Type `fetch` and press "Tab/Enter" to generate:
 ```
 fetch(url)
-   .then((response) =>{
+   .then(response =>{
      return response;
- })
-   .then((data) =>{
-     console.log('data', data);
- })
-   .catch((error) =>{
-     console.log('ERROR: ', error.message);
- })
+   })
+   .then(data =>{
+     console.log('data:', data);
+   })
+   .catch(error => console.log('ERROR:', error.message));
  ```
 ## Contact
 Twitter: [@treedbox](http://twitter.com/treedbox)
