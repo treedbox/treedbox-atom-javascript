@@ -1,7 +1,7 @@
 {
   "name": "treedbox-atom-javascript",
   "main": "./lib/treedbox-atom-javascript",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "javaScript Snippets for fast development in Atom.io.",
   "homepage": "https://github.com/treedbox/treedbox-atom-javascript#readme",
   "license": "MIT",
