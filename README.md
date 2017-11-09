@@ -30,7 +30,7 @@ fetch(url)
       console.log('data:',data);
   }).catch(error => console.log('ERROR:',error.message));
  ```
- As well as for `fetch`, you had a lot of snippers to help you with `import`, `forEach`, `map` `generator` and so on.
+ As well as for `fetch`, you had a lot of snippers to help you with `import`, `forEach`, `map`, `generator` and so on.
  
 ## Tested
  **Atom 1.21.0-beta2 x64**
