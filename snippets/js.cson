@@ -30,8 +30,7 @@
   "use strict: Strict Mode - JS":
     prefix:"strict"
     body:"""
-    'use strict';
-    $0
+    'use strict';$0
     """
   "return - JS":
     prefix:"return"
@@ -41,31 +40,97 @@
   "import - JS":
     prefix:"import"
     body:"""
-    import {${1:${2:member1},${3:member2}}} from './${4:module}';
-    $0
+    import {${1:member1,member2}} from './${2:module}';$0
     """
   "import default - JS":
     prefix:"importDefault"
     body:"""
-    import ${1:defaultName},{${2:${3:member1},${4:member2}}} from './${5:module}';
-    $0
+    import ${1:defaultName},${2:member1,member2}} from './${3:module}';$0
     """
-  "import * all - JS":
+  "import * all as name from './module'; - JS":
     prefix:"importAll"
     body:"""
-    import * as ${1:name} from './${2:module}';
+    import * as ${1:name} from './${2:module}';$0
+    """
+  "import member1 as name1 from './module'; - JS":
+    prefix:"importAs"
+    body:"""
+    import ${1:member1} as ${2:name1} from './${3:module}';$0
+    """
+  "export {name1,name2}; exports a function declared earlier - JS":
+    prefix:"export"
+    body:"""
+    export {${1:name1,name2}};$0
+    """
+  "export expression; - JS":
+    prefix:"exportExpression"
+    body:"""
+    export ${1:expression};$0
+    """
+  "export default expression; - JS":
+    prefix:"exportDefaultExpression"
+    body:"""
+    export default ${1:expression};$0
+    """
+  "export {name1 as default}; - JS":
+    prefix:"exportAsDefault"
+    body:"""
+    export {${1:name1} as default};$0
+    """
+  "export {name1 as default,variable1 as name2}; - JS":
+    prefix:"exportAsDefaultMore"
+    body:"""
+    export {${1:name1} as default,${2:variable1 as name2}};$0
+    """
+  "export let name1; - JS":
+    prefix:"exportLet"
+    body:"""
+    export let ${1:name1};$0
+    """
+  "export let name1,name2; - JS":
+    prefix:"exportLetMore"
+    body:"""
+    export let ${1:name1,name2};$0
+    """
+  "export const name1; - JS":
+    prefix:"exportConst"
+    body:"""
+    export const ${1:name1};$0
+    """
+  "export const name1,name2; - JS":
+    prefix:"exportConstMore"
+    body:"""
+    export const ${1:name1,name2};$0
+    """
+  "export * from './module'; - JS":
+    prefix:"exportAllFrom"
+    body:"""
+    export * from './${1:module}';$0
+    """
+  "export {name1,name2} from './module'; - JS":
+    prefix:"exportFrom"
+    body:"""
+    export {${1:name1,name2}} from './${2:module}';$0
+    """
+  "export {name1 as default} from './module'; - JS":
+    prefix:"exportAsDefaultFrom"
+    body:"""
+    export {${1:name1} as default} from './${2:module}';$0
+    """
+  "export {name1 as default,variable1 as name2} from './module'; - JS":
+    prefix:"exportAsDefaultFromMore"
+    body:"""
+    export {${1:name1} as default,${2:variable1 as name2}} from './${3:module}';$0
     """
   "destructuring Object - JS":
     prefix:"destructObj"
     body:"""
-    let {${2:${3:property}: ${4:newEl}}} = ${1:obj};
-    $0
+    let {${2:${3:property}: ${4:newEl}}} = ${1:obj};$0
     """
   "destructuring Array - JS":
     prefix:"destructArr"
     body:"""
-    let [${2:${3:firstEl},${4:secondEl}}] = ${1:arr};
-    $0
+    let [${2:${3:firstEl},${4:secondEl}}] = ${1:arr};$0
     """
   "destructuring to Separate values - JS":
     prefix:"destructVal"
@@ -81,7 +146,7 @@
       z++;
     }$0
     """
-  "Ternary: condition ? expr1 : expr2 - JS":
+  "Ternary: condition ? ifTrue : ifFalse - JS":
     prefix:"ternary"
     body:"""
     ${1:condition} ? ${2:ifTrue} : ${3:ifFalse};$0
@@ -94,7 +159,8 @@
         ${3:expr2}
     ) : (
         ${4:expr3},
-        ${5:expr4});$0
+        ${5:expr4}
+    );$0
     """
   "if (error) throw error; - JS":
     prefix:"ifThrowErr"
@@ -507,16 +573,14 @@
     body:"""
     (function(){
       $1
-    })();
-    $0
+    })();$0
     """
   "Anonymous Function Associated - JS":
     prefix:"funcAnonAsso"
     body:"""
     function(){
       $2
-    }();
-    $0
+    }();$0
     """
   "function name() - JS":
     prefix:"func"
@@ -547,8 +611,7 @@
     do{
       $1
     z++;
-    } while(${2:conditional});
-    $0
+    } while(${2:conditional});$0
     """
   "split() - JS":
     prefix:"split"
@@ -665,8 +728,7 @@
     body:"""
     forEach((e,i,a) =>{
       $1
-    });
-    $0
+    });$0
     """
   "includes() Array has it - JS":
     prefix:"includes"
@@ -1009,8 +1071,7 @@
     prefix:"strLongLit"
     body:"""
     '$1 \\\\
-    $2';
-    $0
+    $2';$0
     """
   "`Template` String - JS":
     prefix:"strTempl"
@@ -1401,8 +1462,7 @@
     new Promise((resolve,reject) =>{
       resolve($1);
       reject($2);
-    });
-    $0
+    });$0
     """
   "Promise.all - JS":
     prefix:"promiseAll"
@@ -1411,8 +1471,7 @@
       .then((data) =>{
         $3
       })
-    .catch(error => console.log('ERROR:',error.message));
-    $0
+    .catch(error => console.log('ERROR:',error.message));$0
     """
 #Window---------------
   "window.window - JS":
