@@ -13,12 +13,12 @@ GitHub:  https://github.com/treedbox/treedbox-atom-javascript
 Atom.io: https://atom.io/packages/treedbox-atom-javascript
 
 ## What's News?
-From 114 to **+480** javascript snippets!
+From 114 to **480** javascript snippets!
 
 ###### All Math properties and methods
 Including an extra complete functions as `MathRandomCompleteFunc` or `randomCompleteFunc`:
 ```
-const random = (min,max) => Math.floor(Math.random() * (max - min + 1)) + min;
+const random = (min,max) => Math.floor(Math.random() * (max - min + 1)) + min
 ```
 and many others **Extras** that you will find out when you need it :)
 
@@ -30,8 +30,8 @@ type: `fetch` and press "**Tab/Enter**" to generate:
 fetch(url)
   .then(response => response)
   .then(data =>{
-      console.log('data:',data);
-  }).catch(error => console.log('ERROR:',error.message));
+      console.log('data:',data)
+  }).catch(error => console.log('ERROR:',error.message))
  ```
  Like `fetch`, you have a lot of snippets to help you with `import`, `forEach`, `map`, `generator` and so on.
 
