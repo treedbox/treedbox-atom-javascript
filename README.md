@@ -13,7 +13,7 @@ GitHub:  https://github.com/treedbox/treedbox-atom-javascript
 Atom.io: https://atom.io/packages/treedbox-atom-javascript
 
 ## What's News?
-From 114 to **480** javascript snippets!
+From 114 to **+480** javascript snippets!
 
 ###### All Math properties and methods
 Including an extra complete functions as `MathRandomCompleteFunc` or `randomCompleteFunc`:

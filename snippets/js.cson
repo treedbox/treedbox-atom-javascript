@@ -2,17 +2,17 @@
   "console.log with Commmentary - JS":
     prefix:"logC"
     body:"""
-    console.log(`$1:`,$1);$0
+    console.log(`$1:`,$1)$0
     """
   "console.log with Template Expression - JS":
     prefix:"logEx"
     body:"""
-    console.log(`$1: ${${1:expression}}`);$0
+    console.log(`$1: ${${1:expression}}`)$0
     """
   "console.dir - JS":
     prefix:"dir"
     body:"""
-    console.dir($1);$0
+    console.dir($1)$0
     """
   "let instead var? - JS":
     prefix:"var"
@@ -30,7 +30,7 @@
   "use strict: Strict Mode - JS":
     prefix:"strict"
     body:"""
-    'use strict';$0
+    'use strict'$0
     """
   "return - JS":
     prefix:"return"
@@ -40,97 +40,97 @@
   "import - JS":
     prefix:"import"
     body:"""
-    import {${1:member1,member2}} from './${2:module}';$0
+    import {${1:member1,member2}} from './${2:module}'$0
     """
   "import default - JS":
     prefix:"importDefault"
     body:"""
-    import ${1:defaultName},${2:member1,member2}} from './${3:module}';$0
+    import ${1:defaultName},${2:member1,member2}} from './${3:module}'$0
     """
-  "import * all as name from './module'; - JS":
+  "import * all as name from './module' - JS":
     prefix:"importAll"
     body:"""
-    import * as ${1:name} from './${2:module}';$0
+    import * as ${1:name} from './${2:module}'$0
     """
-  "import member1 as name1 from './module'; - JS":
+  "import member1 as name1 from './module' - JS":
     prefix:"importAs"
     body:"""
-    import ${1:member1} as ${2:name1} from './${3:module}';$0
+    import ${1:member1} as ${2:name1} from './${3:module}'$0
     """
-  "export {name1,name2}; exports a function declared earlier - JS":
+  "export {name1,name2} exports a function declared earlier - JS":
     prefix:"export"
     body:"""
-    export {${1:name1,name2}};$0
+    export {${1:name1,name2}}$0
     """
-  "export expression; - JS":
+  "export expression - JS":
     prefix:"exportExpression"
     body:"""
-    export ${1:expression};$0
+    export ${1:expression}$0
     """
-  "export default expression; - JS":
+  "export default expression - JS":
     prefix:"exportDefaultExpression"
     body:"""
-    export default ${1:expression};$0
+    export default ${1:expression}$0
     """
-  "export {name1 as default}; - JS":
+  "export {name1 as default} - JS":
     prefix:"exportAsDefault"
     body:"""
-    export {${1:name1} as default};$0
+    export {${1:name1} as default}$0
     """
-  "export {name1 as default,variable1 as name2}; - JS":
+  "export {name1 as default,variable1 as name2} - JS":
     prefix:"exportAsDefaultMore"
     body:"""
-    export {${1:name1} as default,${2:variable1 as name2}};$0
+    export {${1:name1} as default,${2:variable1 as name2}}$0
     """
-  "export let name1; - JS":
+  "export let name1 - JS":
     prefix:"exportLet"
     body:"""
-    export let ${1:name1};$0
+    export let ${1:name1}$0
     """
-  "export let name1,name2; - JS":
+  "export let name1,name2 - JS":
     prefix:"exportLetMore"
     body:"""
-    export let ${1:name1,name2};$0
+    export let ${1:name1,name2}$0
     """
-  "export const name1; - JS":
+  "export const name1 - JS":
     prefix:"exportConst"
     body:"""
-    export const ${1:name1};$0
+    export const ${1:name1}$0
     """
-  "export const name1,name2; - JS":
+  "export const name1,name2 - JS":
     prefix:"exportConstMore"
     body:"""
-    export const ${1:name1,name2};$0
+    export const ${1:name1,name2}$0
     """
-  "export * from './module'; - JS":
+  "export * from './module' - JS":
     prefix:"exportAllFrom"
     body:"""
-    export * from './${1:module}';$0
+    export * from './${1:module}'$0
     """
-  "export {name1,name2} from './module'; - JS":
+  "export {name1,name2} from './module' - JS":
     prefix:"exportFrom"
     body:"""
-    export {${1:name1,name2}} from './${2:module}';$0
+    export {${1:name1,name2}} from './${2:module}'$0
     """
-  "export {name1 as default} from './module'; - JS":
+  "export {name1 as default} from './module' - JS":
     prefix:"exportAsDefaultFrom"
     body:"""
-    export {${1:name1} as default} from './${2:module}';$0
+    export {${1:name1} as default} from './${2:module}'$0
     """
-  "export {name1 as default,variable1 as name2} from './module'; - JS":
+  "export {name1 as default,variable1 as name2} from './module' - JS":
     prefix:"exportAsDefaultFromMore"
     body:"""
-    export {${1:name1} as default,${2:variable1 as name2}} from './${3:module}';$0
+    export {${1:name1} as default,${2:variable1 as name2}} from './${3:module}'$0
     """
   "destructuring Object - JS":
     prefix:"destructObj"
     body:"""
-    let {${2:${3:property}: ${4:newEl}}} = ${1:obj};$0
+    let {${2:${3:property}: ${4:newEl}}} = ${1:obj}$0
     """
   "destructuring Array - JS":
     prefix:"destructArr"
     body:"""
-    let [${2:${3:firstEl},${4:secondEl}}] = ${1:arr};$0
+    let [${2:${3:firstEl},${4:secondEl}}] = ${1:arr}$0
     """
   "destructuring to Separate values - JS":
     prefix:"destructVal"
@@ -143,13 +143,13 @@
     body:"""
     while(${1:conditional}){
       $2
-      z++;
+      z++
     }$0
     """
   "Ternary: condition ? ifTrue : ifFalse - JS":
     prefix:"ternary"
     body:"""
-    ${1:condition} ? ${2:ifTrue} : ${3:ifFalse};$0
+    ${1:condition} ? ${2:ifTrue} : ${3:ifFalse}$0
     """
   "Ternary Multiline: condition ? (expr1,expr2) : (expr3,expr4) - JS":
     prefix:"ternaryMultiLine"
@@ -160,12 +160,12 @@
     ) : (
         ${4:expr3},
         ${5:expr4}
-    );$0
+    )$0
     """
-  "if (error) throw error; - JS":
+  "if (error) throw error - JS":
     prefix:"ifThrowErr"
     body:"""
-    if (error) throw error;$0
+    if (error) throw error$0
     """
   "Switch Case Break Default - JS":
     prefix:"switc"
@@ -173,7 +173,7 @@
     switch($1){
       case $2:
         $3
-        break;
+        break
       default:
         $4
     }$0
@@ -182,7 +182,7 @@
     prefix:"fo"
     body:"""
     for (let i = 0; i < $1.length; i++){
-      ${2:$1[i]};
+      ${2:$1[i]}
     }$0
     """
   "for...of - JS":
@@ -248,7 +248,7 @@
   "innerHTML - JS":
     prefix:"innerHTML"
     body:"""
-    innerHTML = $1;$0
+    innerHTML = $0
     """
   "getElementById() - JS":
     prefix:"getElementById"
@@ -283,7 +283,7 @@
   "textContent - JS":
     prefix:"textCont"
     body:"""
-    textContent$0;
+    textContent$0
     """
 #Storage----------------------------
   "window.sessionStorage - JS":
@@ -503,12 +503,12 @@
   "Math.floor(Math.random() * 100): Integer Random Number - JS":
     prefix:"MathRandomCompleteFunc"
     body:"""
-    const random = (min,max) => Math.floor(Math.random() * (max - min + 1)) + min;$0
+    const random = (min,max) => Math.floor(Math.random() * (max - min + 1)) + min$0
     """
   "Math.floor(Math.random() * 100): Int Random Number - JS":
     prefix:"randomCompleteFunc"
     body:"""
-    const random = (min,max) => Math.floor(Math.random() * (max - min + 1)) + min;$0
+    const random = (min,max) => Math.floor(Math.random() * (max - min + 1)) + min$0
     """
   "Math.round(x): Rounded to the Nearest Integer - JS":
     prefix:"MathRound"
@@ -573,14 +573,14 @@
     body:"""
     (function(){
       $1
-    })();$0
+    })()$0
     """
   "Anonymous Function Associated - JS":
     prefix:"funcAnonAsso"
     body:"""
     function(){
       $2
-    }();$0
+    }()$0
     """
   "function name() - JS":
     prefix:"func"
@@ -610,8 +610,8 @@
     body:"""
     do{
       $1
-    z++;
-    } while(${2:conditional});$0
+    z++
+    } while(${2:conditional})$0
     """
   "split() - JS":
     prefix:"split"
@@ -620,11 +620,11 @@
     """
 #array-----------------------
 #!!Non-standard-------------
-#Array.toSource(); on Chrome
-#Array.values();
+#Array.toSource() on Chrome
+#Array.values()
 #!!Obsolete-----------------
-#Array.observe();
-#Array.unobserve();
+#Array.observe()
+#Array.unobserve()
 #!! Experimental-----------------
 #ArrayBuffer.transfer()
 #Body.arrayBuffer()
@@ -728,7 +728,7 @@
     body:"""
     forEach((e,i,a) =>{
       $1
-    });$0
+    })$0
     """
   "includes() Array has it - JS":
     prefix:"includes"
@@ -798,8 +798,8 @@
   "Generator: function with iteraction - JS":
     prefix:"generator"
     body:"""
-    function* gen() {
-      yield $1;
+    function* gen(){
+      yield $1
     }
     $0
     """
@@ -1024,7 +1024,7 @@
   "backgroundImage - JS":
     prefix:"backgroundImage"
     body:"""
-    backgroundImage = `url('${$1}')`;
+    backgroundImage = `url('${$1}')`
     """
   "className - JS":
     prefix:"className"
@@ -1065,29 +1065,29 @@
   "'String' - JS":
     prefix:"str"
     body:"""
-    '$1';$0
+    '$1'$0
     """
   "'String' Long Literal - JS":
     prefix:"strLongLit"
     body:"""
     '$1 \\\\
-    $2';$0
+    $2'$0
     """
   "`Template` String - JS":
     prefix:"strTempl"
     body:"""
-    `$1`;$0
+    `$1`$0
     """
   "`String` Template MultiLine - JS":
     prefix:"strMultiLine"
     body:"""
     `$1
-    $2`;$0
+    $2`$0
     """
   "`String` Expression - JS":
     prefix:"strExp"
     body:"""
-    `$2${${1:expression}}$3`;$0
+    `$2${${1:expression}}$3`$0
     """
   "Expression - JS":
     prefix:"ex"
@@ -1321,12 +1321,12 @@
   "addEventListener - JS":
     prefix:"listener"
     body:"""
-    addEventListener('$1',${1:ActionName});$0
+    addEventListener('$1',${1:ActionName})$0
     """
   "removeEventListener - JS":
     prefix:"removeEventListener"
     body:"""
-    removeEventListener('$1',$1);$0
+    removeEventListener('$1',$1)$0
     """
   "preventDefault() Behavior - JS":
     prefix:"preventDef"
@@ -1340,8 +1340,8 @@
     fetch(${1:url})
       .then(response => response$2)
       .then(data =>{
-          console.log('data:',data);$0
-      }).catch(error => console.log('ERROR:',error.message));
+          console.log('data:',data)$0
+      }).catch(error => console.log('ERROR:',error.message))
     """
   "fetch response to Text - JS":
     prefix:"fetchText"
@@ -1349,8 +1349,8 @@
     fetch(${1:url})
       .then(response => response.text())
       .then(data =>{
-          console.log('data:',data);$0
-      }).catch(error => console.log('ERROR:',error.message));
+          console.log('data:',data)$0
+      }).catch(error => console.log('ERROR:',error.message))
     """
   "fetch response to JSON - JS":
     prefix:"fetchJSON"
@@ -1358,8 +1358,8 @@
     fetch(${1:url})
       .then(response => response.json())
       .then(data =>{
-          console.log('data:',data);$0
-      }).catch(error => console.log('ERROR:',error.message));
+          console.log('data:',data)$0
+      }).catch(error => console.log('ERROR:',error.message))
     """
   "fetch response to Blob - JS":
     prefix:"fetchBlob"
@@ -1367,8 +1367,8 @@
     fetch(${1:url})
       .then(response => response.blob())
       .then(data =>{
-          console.log('data:',data);$0
-      }).catch(error => console.log('ERROR:',error.message));
+          console.log('data:',data)$0
+      }).catch(error => console.log('ERROR:',error.message))
     """
   "then - JS":
     prefix:"then"
@@ -1379,7 +1379,7 @@
     prefix:"catch"
     body:"""
     catch((error) =>{
-      console.log(error);
+      console.log(error)
     })$0
     """
   "text - JS":
@@ -1460,9 +1460,9 @@
     prefix:"promise"
     body:"""
     new Promise((resolve,reject) =>{
-      resolve($1);
-      reject($2);
-    });$0
+      resolve($1)
+      reject($2)
+    })$0
     """
   "Promise.all - JS":
     prefix:"promiseAll"
@@ -1471,7 +1471,7 @@
       .then((data) =>{
         $3
       })
-    .catch(error => console.log('ERROR:',error.message));$0
+    .catch(error => console.log('ERROR:',error.message))$0
     """
 #Window---------------
   "window.window - JS":
@@ -2157,8 +2157,8 @@
   "canvas with c = canvas.getContext('2d') - JS":
     prefix:"canvas2d"
     body:"""
-    const canvas = document.querySelector('canvas');
-    const c = canvas.getContext('2d');
+    const canvas = document.querySelector('canvas')
+    const c = canvas.getContext('2d')
     """
   "canvas.getContext('2d') - JS":
     prefix:"getContext2d"
@@ -2175,7 +2175,7 @@
     body:"""
     canvas.height$0
     """
-  "clearRect(0,0,canvas.width,canvas.height); - JS":
+  "clearRect(0,0,canvas.width,canvas.height) - JS":
     prefix:"clearRect"
     body:"""
     clearRect(0,0,canvas.width,canvas.height)$0
@@ -2556,5 +2556,5 @@
       rar:'application/x-rar-compressed',
       formdata:'multipart/form-data',
       byteranges:'multipart/byteranges'
-    };$0
+    }$0
     """
