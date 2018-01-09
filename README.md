@@ -17,7 +17,7 @@ version 2.4.0: **501** javascript snippets!
 - Snippets for `fetchGET`, `fetchPOST`, `fetchPUT`, `fetchDELETE`;
 - Include: URL interface https://developer.mozilla.org/docs/Web/API/URL
 `URLcreateObjectURL`, `URLrevokeObjectURL`;
-- Snippets without semicolons; [Semicolons cannot save you! - FunFunFunction #9](https://www.youtube.com/watch?v=Qlr-FGbhKaI), [Semicolons in JavaScript: A preference](https://blog.kentcdodds.com/semicolons-in-javascript-a-preference-dd8fc8b80895);
+- Snippets without semicolons; [YouTube: Semicolons cannot save you! - FunFunFunction #9](https://www.youtube.com/watch?v=Qlr-FGbhKaI), [Article: Semicolons in JavaScript: A preference](https://blog.kentcdodds.com/semicolons-in-javascript-a-preference-dd8fc8b80895);
 - Fixed: typo with `parseInt`.
 
 version 2.3.0: **480** snippets
