@@ -1,5 +1,5 @@
 # Treedbox Atom Javascript
->  How fast do you want to be, to transform an idea into code?
+>  How fast do you want to be to transform an idea into code?
 
 > This is not a package that will force you to remember of some custom prefix to call the the snippets. **Treedbox Atom Javascript** was designed to serve snippets in the most logical way, delivering the most commons code structures and combinations to make your combo code very speedy and powerful.
 
@@ -13,7 +13,16 @@ GitHub:  https://github.com/treedbox/treedbox-atom-javascript
 Atom.io: https://atom.io/packages/treedbox-atom-javascript
 
 ## What's News?
-From 114 to **480** javascript snippets!
+version 2.4.0: **501** javascript snippets!
+- Snippets for `fetchGET`, `fetchPOST`, `fetchPUT`, `fetchDELETE`;
+- Include: URL interface https://developer.mozilla.org/docs/Web/API/URL
+`URLcreateObjectURL`, `URLrevokeObjectURL`;
+- Snippets without semicolons; [Semicolons cannot save you! - FunFunFunction #9](https://www.youtube.com/watch?v=Qlr-FGbhKaI), [Semicolons in JavaScript: A preference](https://blog.kentcdodds.com/semicolons-in-javascript-a-preference-dd8fc8b80895);
+- Fixed: typo with `parseInt`.
+
+version 2.3.0: **480** snippets
+
+version 1.0.0: **114** snippets
 
 ###### All Math properties and methods
 Including an extra complete functions as `MathRandomCompleteFunc` or `randomCompleteFunc`:
