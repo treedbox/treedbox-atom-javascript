@@ -13,7 +13,7 @@ GitHub:  https://github.com/treedbox/treedbox-atom-javascript
 Atom.io: https://atom.io/packages/treedbox-atom-javascript
 
 ## What's News?
-version 2.4.0: **501** javascript snippets!
+version 2.7.0: **501** javascript snippets!
 - Snippets for `fetchGET`, `fetchPOST`, `fetchPUT`, `fetchDELETE`;
 - Include: URL interface https://developer.mozilla.org/docs/Web/API/URL
 `URLcreateObjectURL`, `URLrevokeObjectURL`;
