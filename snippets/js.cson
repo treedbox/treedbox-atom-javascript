@@ -1380,7 +1380,7 @@
     })
       .then(response => response)
       .then(data =>{
-        if (data.status === 200) message(`Success.`)
+        if (data.status === 200) console.log(`Success.`)
         $0
       }).catch(error => console.log('ERROR:',error))
     """
@@ -1398,7 +1398,7 @@
     })
       .then(response => response)
       .then(data =>{
-        if (data.status === 200) message(`Success.`)
+        if (data.status === 200) console.log(`Success.`)
         $0
       }).catch(error => console.log('ERROR:',error))
     """
@@ -1416,7 +1416,7 @@
     })
       .then(response => response)
       .then(data =>{
-        if (data.status === 200) message(`Success.`)
+        if (data.status === 200) console.log(`Success.`)
         $0
       }).catch(error => console.log('ERROR:',error))
     """
