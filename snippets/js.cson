@@ -1350,7 +1350,7 @@
       .then(response => response$2)
       .then(data =>{
           console.log('data:',data)$0
-      }).catch(error => console.log('ERROR:',error.message))
+      }).catch(error => console.log('ERROR:',error))
     """
   "fetch(url,{method:'GET',headers:{'Authorization':'Basic '+credential}}) -JS":
     prefix:"fetchGET"
@@ -1364,7 +1364,7 @@
       .then(response => response)
       .then(data =>{
         console.log(`data:`,data)$0
-      }).catch(error => console.log('ERROR:',error.message))
+      }).catch(error => console.log('ERROR:',error))
     """
   "fetch(url,{method:'POST',body:JSON.stringify(body)}) -JS":
     prefix:"fetchPOST"
@@ -1382,7 +1382,7 @@
       .then(data =>{
         if (data.status === 200) message(`Success.`)
         $0
-      }).catch(error => console.log('ERROR:',error.message))
+      }).catch(error => console.log('ERROR:',error))
     """
   "fetch(url,{method:'PUT',body:JSON.stringify(body)}) -JS":
     prefix:"fetchPUT"
@@ -1400,7 +1400,7 @@
       .then(data =>{
         if (data.status === 200) message(`Success.`)
         $0
-      }).catch(error => console.log('ERROR:',error.message))
+      }).catch(error => console.log('ERROR:',error))
     """
   "fetch(url,{method:'DELETE',body:JSON.stringify(body)}) -JS":
     prefix:"fetchDELETE"
@@ -1418,7 +1418,7 @@
       .then(data =>{
         if (data.status === 200) message(`Success.`)
         $0
-      }).catch(error => console.log('ERROR:',error.message))
+      }).catch(error => console.log('ERROR:',error))
     """
   "fetch response to Text -JS":
     prefix:"fetchText"
@@ -1427,7 +1427,7 @@
       .then(response => response.text())
       .then(data =>{
           console.log('data:',data)$0
-      }).catch(error => console.log('ERROR:',error.message))
+      }).catch(error => console.log('ERROR:',error))
     """
   "fetch response to JSON -JS":
     prefix:"fetchJSON"
@@ -1436,7 +1436,7 @@
       .then(response => response.json())
       .then(data =>{
           console.log('data:',data)$0
-      }).catch(error => console.log('ERROR:',error.message))
+      }).catch(error => console.log('ERROR:',error))
     """
   "fetch response to Blob -JS":
     prefix:"fetchBlob"
@@ -1445,7 +1445,7 @@
       .then(response => response.blob())
       .then(data =>{
           console.log('data:',data)$0
-      }).catch(error => console.log('ERROR:',error.message))
+      }).catch(error => console.log('ERROR:',error))
     """
   "then -JS":
     prefix:"then"
@@ -1548,7 +1548,7 @@
       .then((data) =>{
         $3
       })
-    .catch(error => console.log('ERROR:',error.message))$0
+    .catch(error => console.log('ERROR:',error))$0
     """
 #Window
   "window.window -JS":
