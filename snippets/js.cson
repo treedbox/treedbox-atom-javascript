@@ -2360,10 +2360,10 @@
     new URLSearchParams(${1:init})$0
     """
 #Date
-  "new Date() -JS":
+  "Date() -JS":
     prefix:"date"
     body:"""
-    new Date()$0
+    Date()$0
     """
   "Date.now() -JS":
     prefix:"dateNow"
